@@ -107,6 +107,7 @@ p, ol, ul, a{
 .bubble{
     font-family: 'Darumadrop One', sans-serif;
     text-decoration: none;
+    text-align: center;
 
     background: #fba33f;
     background: radial-gradient(circle, rgba(251, 163, 63, 0.85) 26%, rgb(255, 115, 143) 90%);
