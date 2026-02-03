@@ -23,7 +23,7 @@ body{
 .content_box{
     box-sizing: border-box;
     overflow: visible;
-    background-color: rgb(255, 250, 245);
+    background-color: rgb(255, 250, 245, .9);
     max-width: 70rem;
     margin: 7rem auto;
     padding: 2rem;
@@ -44,7 +44,8 @@ h1{
     border: 4px solid rgb(255, 231, 231);
     color: rgb(152, 25, 55);
     margin: 0;
-    padding: 1rem 5rem;
+    padding: 1rem;
+    min-width: 20rem;
 
     overflow: visible;
     border-radius: 80px;
@@ -55,13 +56,24 @@ h1{
     rotate: -30deg;
 
     z-index: 1000;
+
+    transition: all 0.3s;
 }
 
 h2{
     font-family: 'Darumadrop One', sans-serif;
     font-size: 2rem;
     font-weight: 400;
-    width: fit-content;
+    text-align: center;
+
+    max-width: 21rem;
+}
+
+h3{
+    font-family: 'Capriola', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.1rem;
 }
 
 .content{
@@ -72,15 +84,22 @@ h2{
     align-content: center;
     align-items: center;
 
-    max-width: 70%;
+    max-width: 90%;
 
 }
 
-p, ol, ul, a{
+p, a{
     font-family: 'Capriola', sans-serif;
     font-style: normal;
     font-weight: 100;
     width: fit-content;
+}
+
+ol, ul{
+    font-family: 'Capriola', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    max-width: 100%;
 }
 
 .link_list{
@@ -102,6 +121,8 @@ p, ol, ul, a{
     rotate: -45deg;
     
     row-gap: 3rem;
+
+    transition: all 0.5s;
 }
 
 .bubble{
@@ -117,6 +138,25 @@ p, ol, ul, a{
     
     padding: 1rem;
     /* margin: 1rem; */
+
+    transition: all 0.3s;
+}
+
+.bubble_var{
+    font-family: 'Darumadrop One', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+
+    background: #fba33f;
+    background: radial-gradient(circle, rgba(63, 195, 251, 0.5) 26%, rgba(178, 115, 255, 0.5) 90%);
+    border: 4px solid rgb(231, 235, 255);
+    border-radius: 80px;
+    color: rgb(72, 25, 152);
+    
+    padding: 1rem;
+
+    transition: all 0.3s;
 }
 
 .link1{
@@ -125,6 +165,8 @@ p, ol, ul, a{
     top: -75px;
 
     width: 7rem;
+
+    transition: all 0.3s;
 }
 
 .link2{
@@ -133,6 +175,8 @@ p, ol, ul, a{
     left: 30px;
 
     width: 9rem;
+
+    transition: all 0.3s;
 }
 
 .link3{
@@ -141,6 +185,8 @@ p, ol, ul, a{
     top: 110px;
 
     width: 7rem;
+
+    transition: all 0.3s;
 }
 
 .grow_on_hover{
@@ -152,3 +198,59 @@ p, ol, ul, a{
     z-index: 999;
 }
 
+.flex_cols{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+}
+
+.flex_cols div{
+    max-width: 40%;
+    min-width: 12rem;
+
+    margin: 0 1rem 1rem 1rem;
+}
+
+.vis_container{
+    overflow: scroll;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 700px){
+    body{
+        margin: 2rem;
+    }
+
+    h1{
+        font-size: 1.7rem;
+        min-width: 10rem;
+
+        top: -200px;
+        left: -40px;
+    }
+
+    .content_box{
+        margin-top: 15rem;
+    }
+
+    .link_list{
+        top:-140px;
+        left: 120px;
+
+        rotate:60deg;
+    }
+
+    .bubble{
+        padding: 0.5rem;
+    }
+
+    .link1, .link2, .link3{
+        font-size: 0.9rem;
+    }
+
+    .content{
+        margin: 1rem auto;
+    }
+}
