@@ -1,4 +1,4 @@
-const svg = document.getElementById('screentime');
+const screentimeGraph = document.getElementById('screentime');
 
 const mon = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -6,7 +6,7 @@ const mon = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     mon.setAttribute('width', 288);
     mon.setAttribute('fill', '#00f600');
 
-    svg.appendChild(mon);
+    screentimeGraph.appendChild(mon);
 
 const mon_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -16,7 +16,7 @@ const mon_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     mon_txt.setAttribute('y', 32);
     mon_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(mon_txt);
+    screentimeGraph.appendChild(mon_txt);
 
 const tues = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -25,7 +25,7 @@ const tues = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     tues.setAttribute('fill', '#d3e017');
     tues.setAttribute('y', 70);
 
-    svg.appendChild(tues);
+    screentimeGraph.appendChild(tues);
 
 const tues_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -35,7 +35,7 @@ const tues_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     tues_txt.setAttribute('y', 102);
     tues_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(tues_txt);
+    screentimeGraph.appendChild(tues_txt);
 
 const wed = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -44,7 +44,7 @@ const wed = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     wed.setAttribute('fill', '#e1aa2a');
     wed.setAttribute('y', 140);
 
-    svg.appendChild(wed);
+    screentimeGraph.appendChild(wed);
 
 const wed_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -54,7 +54,7 @@ const wed_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     wed_txt.setAttribute('y', 172);
     wed_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(wed_txt);
+    screentimeGraph.appendChild(wed_txt);
 
 const thurs = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -63,7 +63,7 @@ const thurs = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     thurs.setAttribute('fill', '#de8016');
     thurs.setAttribute('y', 210);
 
-    svg.appendChild(thurs);
+    screentimeGraph.appendChild(thurs);
 
 const thurs_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -73,7 +73,7 @@ const thurs_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text')
     thurs_txt.setAttribute('y', 242);
     thurs_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(thurs_txt);
+    screentimeGraph.appendChild(thurs_txt);
 
 const fri = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -82,7 +82,7 @@ const fri = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     fri.setAttribute('fill', '#c41434');
     fri.setAttribute('y', 280);
 
-    svg.appendChild(fri);
+    screentimeGraph.appendChild(fri);
 
 const fri_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -92,7 +92,7 @@ const fri_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     fri_txt.setAttribute('y', 312);
     fri_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(fri_txt);
+    screentimeGraph.appendChild(fri_txt);
 
 const sat = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -101,7 +101,7 @@ const sat = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     sat.setAttribute('fill', '#71f208');
     sat.setAttribute('y', 350);
 
-    svg.appendChild(sat);
+    screentimeGraph.appendChild(sat);
 
 const sat_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 
@@ -111,7 +111,7 @@ const sat_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     sat_txt.setAttribute('y', 382);
     sat_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(sat_txt);
+    screentimeGraph.appendChild(sat_txt);
 
 const sun = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
@@ -120,7 +120,7 @@ const sun = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     sun.setAttribute('fill', '#96f214');
     sun.setAttribute('y', 420);
 
-    svg.appendChild(sun);
+    screentimeGraph.appendChild(sun);
 
 
 const sun_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -131,4 +131,54 @@ const sun_txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     sun_txt.setAttribute('y', 452);
     sun_txt.setAttribute('fill', 'white');
 
-    svg.appendChild(sun_txt);
+    screentimeGraph.appendChild(sun_txt);
+
+// Artistic svg //
+const artistic = document.getElementById('artistic');
+
+const shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    shape.setAttribute('d', 'M 150,0 100,200 200,200 200,150 50, 125 50,75 250,75 300,0 150,0');
+    shape.setAttribute('fill-rule', 'evenodd');
+    // shape.setAttribute('stroke', 'orange');
+    shape.setAttribute('stroke-width', 6);
+    shape.setAttribute('fill', 'cyan');
+
+artistic.appendChild(shape);
+
+const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+    circle.setAttribute('cx', 200);
+    circle.setAttribute('cy', 110);
+    circle.setAttribute('r', 30);
+    circle.setAttribute('fill', 'green');
+
+artistic.appendChild(circle);
+
+const circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+    circle2.setAttribute('cx', 320);
+    circle2.setAttribute('cy', 150);
+    circle2.setAttribute('r', 100);
+    circle2.setAttribute('fill', 'red');
+
+artistic.appendChild(circle2);
+
+const circle3 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+    circle3.setAttribute('cx', 250);
+    circle3.setAttribute('cy', 250);
+    circle3.setAttribute('r', 50);
+    circle3.setAttribute('fill', '#1f0a62');
+
+artistic.appendChild(circle3);
+
+for(let i = 1; i < 50; i++){
+    let cir = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    cir.setAttribute('cx', 250 + Math.cos(i*2)*(2000/i));
+    cir.setAttribute('cy', 250 + Math.sin(i*2)*(2000/i));
+    cir.setAttribute('r', 300/i);
+    cir.setAttribute('fill', '#' + i*14);
+
+    artistic.appendChild(cir);
+}
