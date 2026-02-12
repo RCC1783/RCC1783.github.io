@@ -102,18 +102,11 @@ a{
     width: fit-content;
 }
 
-p{
+p, ol, ul{
     font-family: 'Capriola', sans-serif;
     font-style: normal;
     font-weight: 100;
     max-width: 90%;
-}
-
-ol, ul{
-    font-family: 'Capriola', sans-serif;
-    font-style: normal;
-    font-weight: 100;
-    max-width: 100%;
 }
 
 .link_list{
@@ -264,16 +257,17 @@ ol, ul{
 }
 
 .collapsible_cols .col{
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-width: 50%;
+    min-width: 200px;
+    width: 50%;
 }
 
 .vis_container{
-    overflow: hidden;
+    overflow: scroll;
     width:100%;
     max-width: 100%;
     margin: 1rem;
@@ -313,5 +307,23 @@ ol, ul{
 
     .content{
         margin: 1rem auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h2{
+        font-size: 1.5rem;
+    }
+
+    .bubble_var{
+        font-size: 1rem;
+    }
+
+    p, ol, ul{
+        font-size: 0.8rem;
+    }
+
+    .collapsible{
+        font-size: 1.1rem;
     }
 }

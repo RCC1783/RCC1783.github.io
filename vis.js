@@ -222,7 +222,7 @@ fetchData('./data/videogames_wide.csv').then(async (data) => {
             vl.color().fieldN("Genre"),
             vl.tooltip("Global_Sales").aggregate("sum")
         )
-        .width("container")
+        .width("500")
         .height("600")
         .toSpec();
 
@@ -233,7 +233,7 @@ fetchData('./data/videogames_wide.csv').then(async (data) => {
             vl.x().fieldO("Year"),
             vl.color().fieldN("Genre"),
             vl.tooltip("Global_Sales").aggregate("sum")
-        ).width("container")
+        ).width("500")
         .height("400")
         .toSpec();
 
