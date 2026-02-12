@@ -7,6 +7,13 @@
 
     <link rel="stylesheet" href="./style.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
     <!-- Google Fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,19 +29,60 @@
             <a class="bubble link3 grow_on_hover" href="#">Contact Me</a>
         </nav>
         <div class="content">
-            <h2>Here are some Visualizations I am making for IAT355</h2>
-            <div class="vis_container">
-                <h3>Exposing My Screentime Last Week (In Minutes)</h3>
-                <svg id="screentime" width="850" height="470"></svg>
-                <p>(I do not know what happened on Friday???)</p>
+            <h2>Here are some Visualizations</h2>
+
+            <button class="collapsible">Experimenting</button>
+            <div class="collapsible_cols">
+                <div class="col">
+                    <h3 class="bubble_var">My Screentime One Week (In Minutes)</h3>
+                    <div class="vis_container">
+                        <svg id="screentime" style="width:100%; height:470px;"></svg>
+                        <p>(I do not know what happened on Friday???)</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="bubble_var">Playing With SVGs</h3> 
+                    <div class="vis_container">
+                        <svg id="artistic" style="width:100%; height:470px;"></svg>
+                        <p>I remembered I could do spirals and so of course I did a spiral. Next time it will be fractals.</p>
+                    </div>
+                </div>
             </div>
-            <div class="vis_container">
-                <h3>Playing With SVGs</h3>
-                <svg id="artistic" width="500" height="500"></svg>
-                <p>I remembered I could do spirals and so of course I did a spiral. Next time it will be fractals.</p>
+
+            <button class="collapsible">Intro to VegaLite</button>
+            <div class="collapsible_cols">
+                <div class="col">
+                    <h3 class="bubble_var">Global Videogame Sales by Platform and Genre</h3>
+                    <div class="vis_container">
+                        <div id="GbSxPaG" style="width:100%; height:470px;"></div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="bubble_var">Sales Over-Time by Platform and Genre</h3> 
+                    <div class="vis_container">
+                        <div id="SoTxPaG" style="width:100%;"></div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="bubble_var">Regional Sales vs. Platform</h3> 
+                    <div class="vis_container">
+                        <div id="RSxP" style="width:100%; height:470px;"></div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="bubble_var">Visual Story</h3> 
+                    <div class="vis_container">
+                        <div id="VS" style="width:100%; height:470px;"></div>
+                    </div>
+                </div>
             </div>
-            <script src="vis.js"></script>
         </div>
     </section>
+    <script type="module" src="vis.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

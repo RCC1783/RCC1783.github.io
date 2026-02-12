@@ -3,10 +3,13 @@
     background-image: url("./assets/WebsiteBackground.png");
     background-size: 300px;
     background-repeat: repeat;
+
+    max-height: 100vh;
 }
 
 body{
     margin: 5rem;
+    max-height: 100%;
 }
 
 .background_overlay{
@@ -24,7 +27,8 @@ body{
     box-sizing: border-box;
     overflow: visible;
     background-color: rgb(255, 250, 245, .9);
-    max-width: 70rem;
+    max-width: 90rem;
+    max-height: 100%;
     margin: 7rem auto;
     padding: 2rem;
 
@@ -62,7 +66,7 @@ h1{
 
 h2{
     font-family: 'Darumadrop One', sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 400;
     text-align: center;
 
@@ -70,10 +74,13 @@ h2{
 }
 
 h3{
+    box-sizing: border-box;
     font-family: 'Capriola', sans-serif;
     font-weight: 600;
     font-style: italic;
     font-size: 1.1rem;
+
+    /* width: 100%; */
 }
 
 .content{
@@ -88,11 +95,18 @@ h3{
 
 }
 
-p, a{
+a{
     font-family: 'Capriola', sans-serif;
     font-style: normal;
     font-weight: 100;
     width: fit-content;
+}
+
+p{
+    font-family: 'Capriola', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    max-width: 90%;
 }
 
 ol, ul{
@@ -143,6 +157,7 @@ ol, ul{
 }
 
 .bubble_var{
+    box-sizing: border-box;
     font-family: 'Darumadrop One', sans-serif;
     text-decoration: none;
     text-align: center;
@@ -154,9 +169,11 @@ ol, ul{
     border-radius: 80px;
     color: rgb(72, 25, 152);
     
-    padding: 1rem;
+    padding: 1rem 2rem;
 
     transition: all 0.3s;
+
+    width: 100%;
 }
 
 .link1{
@@ -213,9 +230,53 @@ ol, ul{
     margin: 0 1rem 1rem 1rem;
 }
 
+.collapsible{
+    box-sizing: border-box;
+    font-family: 'Darumadrop One', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+
+    background: #fba33f;
+    background: radial-gradient(circle, #8fffa97e 26%, #7aefffbd 90%);
+    border: 4px solid rgb(164, 255, 220);
+    border-radius: 80px;
+    color: rgb(0, 87, 22);
+    
+    padding: 1rem 2rem;
+    margin: 1rem;
+
+    transition: all 0.3s;
+
+    width: 100%;
+}
+
+.collapsible:hover{
+    /* background: radial-gradient(circle, #8fffa97e 26%, #7aefffbd 90%); */
+    width:105%;
+}
+
+.collapsible_cols{
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.collapsible_cols .col{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 50%;
+}
+
 .vis_container{
-    overflow: scroll;
+    overflow: hidden;
+    width:100%;
     max-width: 100%;
+    margin: 1rem;
 }
 
 @media screen and (max-width: 700px){
