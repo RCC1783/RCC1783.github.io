@@ -212,33 +212,59 @@ async function render(viewID, spec) {
     result.view.run();
 }
 
-fetchData('./data/videogames_wide.csv').then(async (data) => {
-    const vlSpec = vl.markCircle()
+fetchData('./data/videogames_long.csv').then(async (data) => {
+    const vlSpec = vl.markCircle({tooltip: true})
         .data(data)
         .encode(
-            vl.y().fieldO("Platform").sort('Global_Sales'),
-            vl.x().fieldO('Genre'),
-            vl.size().fieldQ("Global_Sales").aggregate("sum"),
-            vl.color().fieldN("Genre"),
-            vl.tooltip("Global_Sales").aggregate("sum")
+            vl.y().fieldO("platform").sort('name'),
+            vl.x().fieldO("genre"),
+            vl.size().fieldQ("sales_amount").aggregate("sum"),
+            vl.color().fieldN("genre"),
         )
-        .width("500")
-        .height("600")
+        .width("600")
+        .height("800")
         .toSpec();
 
-    const vlSpec2 = vl.markBar()
+    render("#vis1", vlSpec);
+
+    const vlSpec5 = vl.markCircle({tooltip: true})
+        .data(data)
+        .encode(
+            vl.y().fieldN("platform"),
+            vl.x().fieldN("sales_region"),
+            vl.color().fieldN("sales_region"),
+            vl.size().fieldQ("sales_amount").aggregate("sum"),
+        ).width("300")
+        .height("800")
+        .toSpec();
+
+    render("#vis5", vlSpec5);
+});
+
+fetchData('./data/videogames_wide.csv').then(async (data) => {
+    
+    const vlSpec2 = vl.markArc({ tooltip:true, innerRadius: 800 / 13, padAngle: 0.01, cornerRadius: 10})
+        .data(data)
+        .encode(
+            vl.column().fieldN("Platform"),
+            vl.theta().count(),
+            vl.color().fieldN("Genre"),
+        )
+        .toSpec();
+
+    const vlSpec3 = vl.markBar({tooltip: true})
         .data(data)
         .encode(
             vl.y().fieldQ("Global_Sales").aggregate("sum").title("Global Sales"),
             vl.x().fieldO("Year"),
             vl.color().fieldN("Genre"),
-            vl.tooltip("Global_Sales").aggregate("sum")
-        ).width("500")
+        ).width("600")
         .height("400")
         .toSpec();
 
-    render("#GbSxPaG", vlSpec);
-    render('#SoTxPaG', vlSpec2);
+    
+    render('#vis2', vlSpec2);
+    render('#vis3', vlSpec3);
 });
 // setInterval(() => {
     
