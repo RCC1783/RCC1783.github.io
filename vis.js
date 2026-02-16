@@ -1,3 +1,5 @@
+const graphBG = "#fffbed23"
+
 // https://douiri.org/blog/range-mapping/
 function map(value, sourceStart, sourceEnd, targetStart, targetEnd) {
     return (value - sourceStart) / (sourceEnd - sourceStart) * (targetEnd - targetStart) + targetStart
@@ -221,11 +223,68 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
             vl.size().fieldQ("sales_amount").aggregate("sum"),
             vl.color().fieldN("genre"),
         )
+        .background(graphBG)
         .width("600")
         .height("800")
         .toSpec();
 
     render("#vis1", vlSpec);
+
+    const onlyRPGs = data.filter((d) => {
+        return d.genre === "Role-Playing"
+    });
+
+    {
+        const allData = vl.markPoint({tooltip: true})
+            .data(onlyRPGs)
+            .transform(
+            vl.filter()
+            )
+            .encode(
+                vl.y().fieldQ("sales_amount").aggregate("sum"),
+                vl.x().fieldO("year"),
+                vl.color().fieldN("platform"),
+                vl.size().fieldQ("sales_amount").aggregate("sum").scale({type: "sqrt"}),
+                // vl.tooltip("name")
+            );
+
+        const totalRPG = vl.markArea({tooltip: true})
+            .data(onlyRPGs)
+            .encode(
+                vl.y().fieldQ("sales_amount").aggregate("sum"),
+                vl.x().fieldO("year"),
+                vl.opacity().value(0.5)
+            );
+
+        const vis3 = vl.
+            layer(totalRPG, allData)
+            .background(graphBG)
+            .height(600)
+            .width(600)
+            .toSpec();
+        
+        render("#vis3", vis3);
+    }
+
+    const Nintendo_xBox = data.filter((d) => {
+        return d.platform === "Wii" || d.platform === "X360" || d.platform  === "PS3";
+    });
+
+    const vis4 = vl.markArea({tooltip: true})
+        .data(Nintendo_xBox)
+        .encode(
+            vl.column().fieldN("genre"),
+            vl.y().field("sales_amount").aggregate("sum"),
+            vl.x().fieldO("year"),
+            vl.color().fieldN("platform"),
+            vl.opacity().value(0.75)
+        )
+        .background(graphBG)
+        .toSpec();
+    
+    render("#vis4", vis4);
+
+
 
     const vlSpec5 = vl.markCircle({tooltip: true})
         .data(data)
@@ -233,8 +292,9 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
             vl.y().fieldN("platform"),
             vl.x().fieldN("sales_region"),
             vl.color().fieldN("sales_region"),
-            vl.size().fieldQ("sales_amount").aggregate("sum"),
-        ).width("300")
+            vl.size().fieldQ("sales_amount").aggregate("sum").scale("sqrt"),
+        ).background(graphBG)
+        .width("300")
         .height("800")
         .toSpec();
 
@@ -249,7 +309,7 @@ fetchData('./data/videogames_wide.csv').then(async (data) => {
             vl.column().fieldN("Platform"),
             vl.theta().count(),
             vl.color().fieldN("Genre"),
-        )
+        ).background(graphBG)
         .toSpec();
 
     const vlSpec3 = vl.markBar({tooltip: true})
@@ -258,7 +318,8 @@ fetchData('./data/videogames_wide.csv').then(async (data) => {
             vl.y().fieldQ("Global_Sales").aggregate("sum").title("Global Sales"),
             vl.x().fieldO("Year"),
             vl.color().fieldN("Genre"),
-        ).width("600")
+        ).background(graphBG)
+        .width("600")
         .height("400")
         .toSpec();
 
