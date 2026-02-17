@@ -90,6 +90,10 @@ h3{
     /* width: 100%; */
 }
 
+hr{
+    min-width: 100%;
+}
+
 .content{
     margin: 0 auto;
     display: flex;
@@ -120,6 +124,10 @@ p, ol, ul{
     max-width: 90%;
     margin-top: 0;
     margin-bottom: 0.5rem;
+}
+
+li{
+    margin-top: 0.6rem;
 }
 
 .link_list{
@@ -222,7 +230,7 @@ p, ol, ul{
 }
 
 .collapsible_content{
-    display: none;
+    display: flex;
     width: 100%;
 }
 

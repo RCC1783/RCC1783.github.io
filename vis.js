@@ -299,6 +299,51 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
         .toSpec();
 
     render("#vis5", vlSpec5);
+
+    const handheledConsoles = data.filter((d) => {
+        return d.platform === "3DS" || d.platform === "DS" || d.platform === "GB" || d.platform === "GBA" || d.platform === "PSP" || d.platform === "PSV" || d.platform === "GG" || d.platform === "WS" 
+    });
+    const homeConsoles = data.filter((d) => {
+        return d.platform !== "3DS" && d.platform !== "DS" && d.platform !== "GB" && d.platform !== "GBA" && d.platform !== "PSP" && d.platform !== "PSV" && d.platform !== "GG" && d.platform !== "WS" && d.year >= 1985;
+    });
+
+    {
+        const handhelds = vl.markCircle({tooltip: true})
+            .data(handheledConsoles)
+            .transform(
+            vl.filter()
+            )
+            .encode(
+            vl.y().fieldQ("sales_amount").aggregate("sum").title("Sales Amount (millions)"),
+            vl.x().fieldN("sales_region"),
+            // vl.size().fieldQ("sales_amount").aggregate("sum").scale({type: "pow"}),
+            vl.size().value(300),
+            vl.color().fieldN("sales_region"),
+            vl.opacity().value(0.5)
+            );
+
+        const home = vl.markSquare({tooltip: true})
+            .data(homeConsoles)
+            .encode(
+            vl.y().fieldQ("sales_amount").aggregate("sum"),
+            vl.x().fieldN("sales_region"),
+            // vl.size().fieldQ("sales_amount").aggregate("sum").scale({type: "pow"}),
+            vl.size().value(300),
+            vl.color().fieldN("sales_region"),
+            );
+
+        const vis6 = vl.
+            layer(handhelds, home)
+            // .title("Handheld vs Home-system Sales by Region After 1985")
+            .background(graphBG)
+            .height(600)
+            .width(300)
+            .toSpec();
+
+        render("#vis6", vis6);
+        
+    } 
+
 });
 
 fetchData('./data/videogames_wide.csv').then(async (data) => {
