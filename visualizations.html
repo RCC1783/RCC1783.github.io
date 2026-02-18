@@ -54,24 +54,108 @@
                 </div>
             </div>
 
-            <button class="collapsible">Intro to VegaLite</button>
+            <button class="collapsible">A3 - Intro to Vegalite</button>
             <div class="collapsible_content">
                 <div class="flex_cols">
+                    <div class="span_col">
+                        <h3 class="bubble_var">Describing The Data</h3>
+                        <p>For the majority of this assignment, I used vg_longData.csv because it was easier for me to work with the data when it was separated out into its sales regions rather than being all in one. That being said, both datasets include more or less the same data (I found some potential discrepancies which I will mention in relevant visualizations but I am not sure if this is a fault of mine, or the datasets). Here is a breakdown of the variables that make up the data:</p>
+                        <ul>
+                            <li>
+                                <p><b>Name:</b> A categorical (Nominal) variable of the name of the game</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>There are 11 325 unique games included in this dataset</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Platform:</b> A categorical (Nominal) variable containing the name of the publisher of the game</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>There are 31 different platforms included in this dataset with The DS having the most entries followed by the PS2</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Genre:</b> A categorical (Nominal) variable of the genre of the given game</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>Genre is split into 12 categories with Action games being the most frequent, followed by Sports</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Publisher:</b> A categorical (Nominal) variable containing the name of the publisher of the game</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>There are games from 576 different publishers included in this dataset</li>
+                                    <li>EA (Electronic Arts) has published the most amount of games in this dataset (This is wholy unsurprising to me)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Year:</b> A numerical (Ordinal) variable containing the year the game was released</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>The year spans from 1980-2020 (inclusive)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>NA_Sales:</b> A numerical (Quantative) variable containing the number of units (in millions) sold in North America</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>North American sales average a good amount higher than any other sales region</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>EU_Sales:</b> A numerical (Quantative) variable containing the number of units (in millions) sold in other the European Union</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>Sales in the EU have the second highest average</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>JP_Sales:</b> A numerical (Quantative) variable containing the number of units (in millions) sold in Japan</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>Sales in Japan have the lowest average</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Other_Sales:</b> A numerical (Quantative) variable containing the number of units (in millions) sold in other regions</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>Sales in Other regions are the second lowest</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><b>Global_Sales:</b> A numerical (Quantative) variable containing the total number of units (in millions) sold globally</p>
+                                <p>Some stuff of note:</p>
+                                <ul>
+                                    <li>The vast majority of games included in the dataset do not break 1 million in global sales</li>
+                                    <li>The best selling game is Wii Sports at 82.74 million </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>The primary difference between the long data and wide is the decision to separate games into not only the platform, but also the sales region. Thus, instead of using NA_Sales, EU_Sales, JP_Sales, or Other_Sales, the long data has the variables 'sales_region' and 'sales_amount' which are for the categorical and numerical representation of the region where the game was sold and the amount sold in that region (in millions) respectively. All of the sales numbers are rounded to two decimal places which leads me to believe that games which sold less than ~0.01 million are excluded from the dataset.</p>
+                    </div>
                     <div class="col">
                         <h3 class="bubble_var">Global Videogame Sales by Platform and Genre</h3>
-                        <h4>Q: What genre of games was most popular on each platform</h4>
+                        <h4>Q: How well did different genres of games sell on each platform?</h4>
                         <div class="vis_container">
                             <div id="vis1" style="width:100%;"></div>
                         </div>
-                        <p>shdfgsdhf</p>
+                        <p>This visualization was my first response to the given prompt. I thought that displating the data like this would be interesting because it allows for a more direct comparison between platforms and genres. </p>
 
                         <hr>
                         
-                        <h4>Q: For each platform, what was the ratio of genres available and does it relate to the sum of global sales?</h4>
+                        <h4>Q: For each platform, what was the ratio of genres available?</h4>
                         <div class="vis_container">
                             <div id="vis2" style="width:100%;"></div>
                         </div>
-                        <p>One thing I have to disclose is that this data very incomplete and this visualization does demonstrate that. The Sega Game Gear (GG) had around 300 games released but this dataset only includes one game.</p>
+                        <p>For this question, I was originally curious to see if there was a correlation between the ratio of genres sold on a platform and the overall sales of the platform however, although I had planned on using size to represent the total sales amount for a given platform, I couldn't figure out how to use VegaLite to get that to work. Still, I think even without representing the sales amounts of  platform, I think that this is still an interesting visualization and I can pull in knowledge from the other visualizations made to fill in the gaps and find out some interesting things.</p>
+                        <p>Here are some findings I find interesting:</p>
+                        <ul>
+                            <li>It does look like there is a correlation between how well a platform did and the variety of genres available on it. Systems with higer games sales tended to have larger varieties of games. With this data I can't tell if the wider variety of genres is what led to better performance, or if companies were more interested in developing for a platform because it was already doing well. A chicken or the egg scenario.</li>
+                            <li>While it is clear that this dataset is incomplete, it is interesting to see how many platforms really focused on only just a couple of genres. For example, doing a little extra research, I found out that, while not the only genre available, the PC-FX had a bit more of a focus on Visual Novels, Dating sims, and the like. While not the traditional definition of a role-playing game, under the more contemporary definition they could be classified as role playing games so the dataset was not really misleading dispite being incomplete.</li>
+                        </ul>
                     </div>
 
                     <div class="col">
@@ -81,6 +165,11 @@
                             <div id="vis3" style="width:100%;"></div>
                         </div>
                         <p>As a fan of role-playing games, I was curious to see if They were, overall, trending upwards in sales and therefore becoming more popular as well. </p>
+                        <p>Here are some findings I find interesting:</p>
+                        <ul>
+                            <li>I expexted the overall sales of role playing games to be a lot smoother of a line so I was surprised to see a pattern of high peaks and big valleys. I suppose it makes sense since it would be unreasonable for there to be a very consistent output of well performing role-playing games every year, but it was still somewhat surprising and interesting to me. I wonder if the off years might have seen spikes in other genres?</li>
+                            <li>Generally, I was correct in my assumption that role playing games had become more popular over the years however I was not expecting the fall-off from 2013 onwards. I wonder why there was such a big decline and if this dataset went all the way to 2026, if they recovered from their decline or stayed lower in sales?</li>
+                        </ul>
 
                         <hr>
 

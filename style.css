@@ -126,6 +126,16 @@ p, ol, ul{
     margin-bottom: 0.5rem;
 }
 
+b{
+    font-family: 'Capriola', sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 600;
+    max-width: 90%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
 li{
     margin-top: 0.6rem;
 }
@@ -286,6 +296,15 @@ li{
     min-width: 150px;
     width: 40%;
     margin: 1rem;
+}
+
+.flex_cols .span_col{
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    min-width: 100%;
+    justify-content: center;
 }
 
 .vis_container{
