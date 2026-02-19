@@ -270,7 +270,7 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
         return d.platform === "Wii" || d.platform === "X360" || d.platform  === "PS3";
     });
 
-    const vis4 = vl.markArea({tooltip: true})
+    const vis4 = vl.markLine({tooltip: true})
         .data(Nintendo_xBox)
         .encode(
             vl.column().fieldN("genre"),
@@ -341,8 +341,38 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
             .toSpec();
 
         render("#vis6", vis6);
-        
     } 
+
+    const vlSpec7 = vl.markBar({tooltip:true})
+        .data(data)
+        .transform(
+            vl.filter('datum["sales_region"] === "na_sales" && datum["year"] >= 2000 && datum["year"] < 2017')
+        )
+        .encode(
+            vl.x().fieldO('year'),
+            vl.y().fieldQ('name').count(),
+            // vl.color().fieldN('genre')
+        ).background(graphBG)
+        .toSpec();
+
+        render("#vis7", vlSpec7);
+
+        const vlSpec8 = vl.markCircle({tooltip:true})
+            .data(data)
+            .transform(
+                vl.filter('datum["sales_region"] === "na_sales" && datum["year"] >= 2000 && datum["year"] < 2017 && datum["name"] !== "Wii Sports"')
+            )
+            .encode(
+                vl.column().fieldO('year'),
+                vl.x().fieldQ('sales_amount').bin({step: 0.5}),
+                vl.y().count().scale("log"),
+                // vl.color().fieldN('genre')
+                vl.size().value(100)
+            ).width(600)
+            .background(graphBG)
+            .toSpec()
+
+        render("#vis8", vlSpec8);
 
 });
 
