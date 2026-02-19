@@ -240,7 +240,7 @@ li{
 }
 
 .collapsible_content{
-    display: flex;
+    display: none;
     width: 100%;
 }
 
