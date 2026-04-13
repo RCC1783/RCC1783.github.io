@@ -214,7 +214,7 @@ async function render(viewID, spec) {
     result.view.run();
 }
 
-fetchData('./data/videogames_long.csv').then(async (data) => {
+fetchData('../data/videogames_long.csv').then(async (data) => {
     const vlSpec = vl.markCircle({tooltip: true})
         .data(data)
         .encode(
@@ -376,7 +376,7 @@ fetchData('./data/videogames_long.csv').then(async (data) => {
 
 });
 
-fetchData('./data/videogames_wide.csv').then(async (data) => {
+fetchData('../data/videogames_wide.csv').then(async (data) => {
     
     const vlSpec2 = vl.markArc({ tooltip:true, innerRadius: 800 / 13, padAngle: 0.01, cornerRadius: 10})
         .data(data)
