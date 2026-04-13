@@ -3,78 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roan's Page</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <title>Home</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <!-- Google Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background_overlay"></div>
-    <section class="content_box">
-        <h1>~Home~</h1>
-        <nav class="link_list">
-            <a class="bubble link1 grow_on_hover" href="#">Character Art</a>
-            <a class="bubble link2 grow_on_hover" href="visualizations.html">Visualizations</a>
-            <a class="bubble link3 grow_on_hover" href="#">Contact Me</a>
+    <header id="nav_header">
+        <a class="logotype" href="./index.html">Roan Clifford</a>
+        <button id="hamburger" class="nav-link">menu</button>
+        <nav id="link_container">
+            <a class="nav-link" href="./pages/works.html">Works</a>
+            <!-- <a class="nav-link" href="#">Character Art</a> -->
+            <a class="nav-link" href="./pages/about.html">About</a>
+            <a class="nav-link" href="./pages/visualizations.html">Visualizations</a>
         </nav>
-        <div class="content">
-            <h2>Welcome!</h2>
-            <section >
-                <div class="flex_cols">
-                    <div class="col">
-                        <h3 class="bubble_var">About Me!</h3>
-                        <p>Hi there, I'm Roan! I'm an Interactive Arts and Technologies major in my 4th year focusing on game design and web development.</p>
-                        <p>If you've found this page, you might have also found <a href="https://github.com/RCC1783">my github</a>. Over there you might have seen some of the projects I've completed as part of my degree, and in the future I'd like to share more games that I've made.</p>
-                    </div>
-                
-                    <div class="col">
-                        <h3 class="bubble_var">My Interests?</h3>
-                        <ul>
-                            <li>Game Development</li>
-                            <li>Character Art and Design</li>
-                            <li>2D and 3D Animation</li>
-                            <li>Fiction Writing</li>
-                        </ul>
-                        <ul>
-                            <li>Fantasy</li>
-                            <li>Cute things</li>
-                            <li>Cool things</li>
-                            <li>Cute and Cool things</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h3 class="bubble_var">My Work!</h3>
-                <div class="flex_cols">
-                    <div class="col">
-                        <p>Skills</p>
-                        <ul>
-                            <li>Programming (C/C++, C#, Java)</li>
-                            <li>Unity 2D/3D</li>
-                            <li>Godot</li>
-                            <li>Unreal Engine</li>
-                            <li>Blender/Maya</li>
-                            <li>Adobe Photoshop/Illistrator/InDesign</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <p>Class Experience</p>
-                        <ul>
-                            <li>IAT312 - Foundations of Game Design</li>
-                            <li>IAT445 - Immersive Environments </li>
-                            <li>IAT267 - Introduction to Technological Systems</li>
-                            <li>IAT343 - Animation</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+    </header>
+    <div class="landing">
+        <!-- https://www.w3schools.com/html/html5_video.asp -->
+        <video autoplay muted loop loading="lazy">
+            <source src="./assets/project_reel_2026_rough.mp4" type="video/mp4">
+            Video not supported
+        </video>
+        <div class="landing_content">
+            <p class="landing_head">I Make Stuff!</p>
+            <p class="landing_subhead">Game Developer | Multimedia Artist | Ocassional Fool</p>
+            <nav>
+                <a href="https://www.linkedin.com/in/roan-clifford/">Linkedin</a>
+                <a href="https://github.com/RCC1783">Github</a>
+            </nav>
         </div>
-    </section>
+    </div>
+    <div class="page_content">
+        <section class="row content_bg">
+            <h1>Roan Clifford</h1>
+            <p>Roan is a multimedia artist and game developer living and attending university in Vancouver, BC. Canada who is mainly interested in gameplay design and systems programming.</p>
+            <section id="featured_works">
+                <h2>Featured Works</h2>
+                <div class="flex_grid">
+                    <a href="./pages/in_memorium.html" class="project_card">
+                        <img src="./assets/in_memoriam/end1.png" loading="lazy">
+                        <p>In Memoriam</p>
+                    </a>
+                    <a href="./pages/NMBR1.html" class="project_card">
+                        <img src="./assets/NMBR1/NMBR1_hero.png" loading="lazy">
+                        <p>NMBR1</p>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </div>
+    <footer>
+        <div>
+            <p>Roan Clifford 2026</p>
+            <a href="mailto:rcc19@sfu.ca">rcc19@sfu.ca</a> <!--https://www.w3docs.com/snippets/html/how-to-create-mailto-links.html-->
+        </div>
+        <ul>
+            <li><a href="./pages/styleguide.html">Styleguide</a></li>
+            <li><a href="./pages/references.html">References</a></li>
+            <li><a href="https://github.com/RCC1783/portfolio">Github</a></li>
+        </ul>
+    </footer>
+    <script src="./js/main.js"></script>
 </body>
 </html>
