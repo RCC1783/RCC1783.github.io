@@ -485,51 +485,79 @@ blockquote p{
 
 .project_card{
     position: relative;
+    box-sizing: border-box;
     display: flex;
+    flex-direction: row;
 
-    width: 30%;
-    min-width: 10rem;
-    max-width: 250px;
-    aspect-ratio: 4/3;
+    width: 33%;
+    min-width: 80px;
+    max-width: 400px;
+
+    /* aspect-ratio: 4/3; */
+    height: 19vw;
+    min-height: 60px;
+    max-height: 300px;
+    /* aspect-ratio: 4/3; */
 
     text-decoration: none;
-    border-radius: 40px;
+    border-radius: 3.5vw;
     overflow: hidden;
 
-    /* box-shadow: 0 0 3px rgba(73, 0, 110, 0.3); */
+    box-shadow: 0 0 3px rgba(73, 0, 110, 0.3);
+
+    transition: width 0.3s, max-width 0.3s;
+}
+.project_card:hover {
+    width: 65%;
+    max-width: 800px;
+    /* aspect-ratio: 8/3; */
 }
 
 .project_card img{
+    /* position: absolute; */
     background-color: black;
-    width: 100%;
     object-fit: cover;
+    height: 100%;
+    /* width: 12em; */
+    aspect-ratio: 8/7;
+    /* flex: 1; */
     filter: none;
 
-    transition: filter 0.3s;
+    /* border-radius: 20px; */
+    transition: width 0.3s;
 }
-.project_card:hover img{
-    filter: brightness(50%);
+
+.project_card_info {
+    /* position: absolute; */
+    box-sizing: border-box;
+    right: 0;
+    flex: 0;
+    width: 50%;
+    max-width: 50%;
+    height: 100%;
+    padding: 1vw 1.5vw;
+    overflow-y: scroll;
+
+    transition: flex 0.3s;
 }
-.project_card p{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-    /* width: 100%; */
-    /* margin: 10px; */
+.project_card:hover .project_card_info{
+    flex: 1;
+    min-width: 50%;
+}
 
-    color: transparent;
-    font-size: 1.5rem;
+.proj_card_name{
+    color: black;
+    font-size: 1.15rem;
     font-weight: 800;
-    text-align: center;
-
-    margin: 0;
-
-    transition: color 0.2s, font-size 0.2s;
 }
-.project_card:hover p{
-    color: white;
+
+.project_card_info p{
+    margin-bottom: 0.15rem;
+}
+
+.project_card_info .content_tag{
+    font-size: 0.9rem;
 }
 
 .card_container{
@@ -544,7 +572,7 @@ blockquote p{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1vw;
 
     justify-content: start;
     align-items: center;
@@ -704,8 +732,12 @@ blockquote p{
         justify-content: center;
     }
 
-    .project_card p{
-        font-size: 1.2rem;
+    .proj_card_name{
+        font-size: 0.95rem;
+    }
+
+    .project_card_info .content_tag{
+        font-size: 0.8rem;
     }
 }
 @media screen and (max-width: 500px){
@@ -730,6 +762,14 @@ blockquote p{
     }
     h3{
         font-size: 1.25rem;
+    }
+
+    .project_card_info .content_tag{
+        font-size: 0.75rem;
+    }
+
+    .proj_card_name{
+        font-size: 0.9rem;
     }
 }
 
