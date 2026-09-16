@@ -37,7 +37,8 @@
                 </div>
                 <div class="content_text">
                     <h2>Overview</h2>
-                    <p>The Last Squire is an arcade inspired game made for the <a href="https://itch.io/jam/summer-summit-2026" target="_blank">2026 Summer Summit Game Jame</a>. The game was designed to be playable either by yourself or with a friend using a keyboard and mouse.</p>
+                    <p>Winner of the Summer Summit Game Jam 2026 Most Innovative Mechanic Theme Award</p>
+                    <p>The Last Squire is an arcade inspired game made for the <a href="https://itch.io/jam/summer-summit-2026" target="_blank">2026 Summer Summit Game Jame</a>. The game was designed to be playable both by yourself or with a friend using a the same control scheme on a keyboard and mouse.</p>
                     <p>You can find the game at its itch.io page <a href="https://rcc.itch.io/the-last-squire" target="_blank"> here</a></p>
                     <div class="callout center_text">
                         <p><b>Roles:</b> Programming </p>
@@ -52,31 +53,42 @@
             </section>
         </div>
         <div class="row content_bg">
-            <section id="section1">
-                <h2>Section 1</h2>
-                <p></p>
-            </section>
+            <div class="two_col_grid">
+                <section id="section1">
+                    <h2>Ideation</h2>
+                    <p>Seeing as we didn't have long to develop our game, we decided to put a hard limit on the time we could spend ideating. We threw a lot up on the board and tried to find the strongest, simplest concept that we could expand on if given the time but would be interesting at its most basic. We set up our guiding ideas to be something arcade-esque emphasizing quick, pick up games and single device multiplayer and used those as the starting point. If we felt like an idea was getting too big or complicated, we scrapped it.</p>
+                    <figure>
+                        <img src="/assets/TLS_Whiteboard1.jpg">
+                        <figcaption>Two of our initial ideas on a whiteboard</figcaption>
+                    </figure>
+                </section>
+                <figure style="max-width: 400px;">
+                    <img src="/assets/TLS_Whiteboard2.jpg">
+                    <figcaption>The idea that became The Last Squire</figcaption>
+                </figure>
+            </div>
         </div>
-        <!-- <div class="col_noBG min_50-perc">
-            <img src="/assets/WebsiteBackground.png" loading="lazy" >
-        </div>
-        <div class="col_noBG min_50-perc">
-            <img src="/assets/WebsiteBackground.png">
-        </div> -->
         <div class="row content_bg">
             <section id="section2">
-                <h2>Section 2</h2>
-                <p></p>
+                <h2>Movement</h2>
+                <p>My main role for the last squire was developing the movement and action for the knight character. Designing and implementing the knight meant having to figure out some solutions for design constraints. We knew that the mouse would be used by the other player, and we still wanted option for one person to play both characters, so movement and attacking needed to be doable with one hand. We also knew that we would have hordes of enemies swarming the knight from all angles, so omnidirectional movement felt like a requirement. Finally, we wanted to make playing the knight challenging in order to fit our narrative of a squire who is unsuited for the job. This led to the idea of using tank controls for the knight where 'A' and 'D' rotate the night and 'W' and 'S' move forward and backwards. This added a level of complexity and what I describe as 'intentional jank' to increase the difficulty and make playing the game more interesting. </p>
+            </section>
+        </div>
+        <div class="row content_bg">
+            <section id="section2">
+                <h2>Action</h2>
+                <p>After the knight's movement was implemented, I went on to add the ability for entities to deal and receive damage which was a relatively simple task. Because we wanted the fairy to affect any entity in the game, including the knight, I was able to make the enemies and knight inherit from the same base class and provide public methods for taking and healing damage. This also made it easier to add polish such as knock back later on.</p>
+                <p>At this point the UI was also still pretty early on in development as well and so I didn't want to couple the player and UI too closely together even if it would be faster. Because of this, I thought using something of an observer pattern might be helpful, so I looked into C# events for when the knight's health changed. This worked well for the project and would allow me to add more polish such as effects to the game without having many game objects storing a reference to the knight.</p>
             </section>
         </div>
         <div class="row content_bg">
             <section id="challenges">
                 <h2>Challenges</h2>
-                <p></p>
+                <p>Outside of the time constraint inherent to a game jam, was making our art work with the movement style. For most of the project we were gray-boxing while our artists worked on the art, but I came to realize that the visual style clashed with the movement. We had made our movement omnidirectional but we only had three knight sprites (left, front, and back) which made movement unpredictable as the knight might be looking east but move north-east. Early on in development, when I was first developing the movement without any art, I had a visual indicator marking the 'front' of the knight. Our solution to this issue was to bring back the visual indicator as the player's sword. It meant that the sword would always be on screen which is not what we had originally planned for, but worked well as a visual indicator and allowed players to better understand their sword's range. It also ended up looking a little bit silly in a way that felt endearing. </p>
             </section>
             <section id="outcome">
                 <h2>Outcome</h2>
-                <p>The Last Squire won the Summer Summit Game Jam's award for Most Innovative mechanic.</p>
+                <p>One of my main takeaways from the process of working on The Last Squire is that there are many cases where simple is better and sometimes a small twist on an existing idea can go a long way. Also, working under such a tight deadline forced me to avoid over-scoping the project and to be decisive when it came to designing and implementing features. When a deadline is short, there is not enough time to change your mind about a method of implementation and restart.</p>
             </section>
         </div>
     </div>
